@@ -1,0 +1,28 @@
+.textlens-selection-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: crosshair;
+  z-index: 2147483644;
+}
+
+.textlens-selection-hint {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 46, 0.95);
+  color: #cdd6f4;
+  font: 12px/1.4 ui-sans-serif, system-ui, sans-serif;
+  border: 1px solid rgba(205, 214, 244, 0.25);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.textlens-selection-box {
+  position: fixed;
+  display: none;
+  border: 2px solid #89b4fa;
+  background: rgba(137, 180, 250, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4) inset;
+}

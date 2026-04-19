@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "Textract",
+  "description": "Extract and copy text from images, YouTube video frames, and selected regions using local OCR.",
+  "version": "1.0.0",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "clipboardWrite",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "Textract",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "start-selection-ocr": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "Start selection OCR"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "panel.html",
+        "panel.css",
+        "lib/worker.min.js",
+        "lib/tesseract-core.wasm.js",
+        "lib/lang-data/eng.traineddata.gz",
+        "icons/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Textract</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg0: #0f1220;
+      --bg1: #171b2f;
+      --surface: #1e2338;
+      --text: #e8ecff;
+      --muted: #a9b2d0;
+      --brand: #5ea1ff;
+      --brand2: #72e4c8;
+      --danger: #ffb4b4;
+      --line: #313b5f;
+    }
+    body {
+      margin: 0;
+      min-width: 300px;
+      background:
+        radial-gradient(120% 120% at 100% -10%, rgba(114, 228, 200, 0.18), transparent 45%),
+        radial-gradient(120% 100% at -10% -20%, rgba(94, 161, 255, 0.22), transparent 50%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      color: var(--text);
+      font-family: "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+      padding: 14px;
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      letter-spacing: 0.01em;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    button {
+      margin-top: 12px;
+      width: 100%;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(94, 161, 255, 0.2), rgba(94, 161, 255, 0.1));
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+    button:hover {
+      border-color: var(--brand);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(10, 14, 30, 0.45);
+    }
+    .status {
+      margin-top: 10px;
+      min-height: 14px;
+      color: var(--danger);
+      font-size: 11px;
+    }
+    .kbd {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(30, 35, 56, 0.85);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4px 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <h1>Textract</h1>
+  <p>Extract text from images, YouTube frames, or a selected screen region.</p>
+  <button id="start-selection">Start Selection</button>
+  <div id="status" class="status"></div>
+  <div class="kbd">Shortcut: Ctrl+Shift+X</div>
+  <script src="popup.js"></script>
+</body>
+</html>
